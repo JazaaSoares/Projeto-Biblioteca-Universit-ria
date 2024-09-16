@@ -1,4 +1,6 @@
-package entidades;
+package model.entidades;
+
+import model.exception.IsbnException;
 
 public class Livro{
     private String titulo;
@@ -7,10 +9,10 @@ public class Livro{
     private int quantidadeEstoque;
     private Categoria categoria;
 
-    public Livro(String titulo, String autor, String isbn, int quantidadeEstoque, Categoria categoria) {
+    public Livro(String titulo, String autor, String isbn, int quantidadeEstoque, Categoria categoria) throws IsbnException {
         this.titulo = titulo;
         this.autor = autor;
-        this.isbn = isbn;
+        this.setIsbn(isbn);
         this.quantidadeEstoque = quantidadeEstoque;
         this.categoria = categoria;
     }
@@ -35,8 +37,14 @@ public class Livro{
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(String isbn) throws IsbnException {
+    	System.out.println(isbn.length());
+    	if(isbn.length() == 13) {
         this.isbn = isbn;
+    	}else {
+    		throw new IsbnException();
+    	}
+    	this.isbn = isbn;
     }
 
     public int getQuantidadeEstoque() {

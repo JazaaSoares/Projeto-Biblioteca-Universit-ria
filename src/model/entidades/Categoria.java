@@ -1,4 +1,4 @@
-package entidades;
+package model.entidades;
 //eneum = constantes pré-definidas
 
 public enum Categoria {
@@ -8,4 +8,6 @@ public enum Categoria {
 	    ENGENHARIA,
 	    LITERATURA,
 	    TECNOLOGIA_DA_INFORMACAO;
+
+		
 }
